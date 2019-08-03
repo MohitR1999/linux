@@ -1,17 +1,8 @@
+// SPDX-License-Identifier: GPL-2.0+
 /*
  * Renesas R-Car GyroADC driver
  *
  * Copyright 2016 Marek Vasut <marek.vasut@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
  */
 
 #include <linux/module.h>
@@ -494,10 +485,8 @@ static int rcar_gyroadc_probe(struct platform_device *pdev)
 	int ret;
 
 	indio_dev = devm_iio_device_alloc(dev, sizeof(*priv));
-	if (!indio_dev) {
-		dev_err(dev, "Failed to allocate IIO device.\n");
+	if (!indio_dev)
 		return -ENOMEM;
-	}
 
 	priv = iio_priv(indio_dev);
 	priv->dev = dev;
